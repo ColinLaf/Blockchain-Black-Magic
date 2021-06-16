@@ -34,19 +34,24 @@ def getMap():
     root.geometry("700x600")
     root.resizable(width=False, height=False) #Used in order to prevent the students from changing the window because of limited picture size
     root.title("Map of Tennessee Tech")
+    
     canvas = Canvas(root, width = 700, height = 380)
     canvas.pack()
+    btn = Button(root, text = 'Main Menu', bd=5, pady=4, command =lambda : moveMenu(root, 0))
+    canvas.create_window( 350, 20, window = btn)
+    btn = Button(root, text = 'Main Menu', bd=5, pady=4, command=checkBlockchain)
+    canvas.create_window( 250, 20, window = btn)
     img = PhotoImage(file= "graphv3.ppm") #ppm files are the only ones that Tkinter is able to open (To my knowledge)
     img = img.subsample(3,3) #Image was too large, so this command is used in order to change the size
     canvas.create_image(0,0, anchor=NW, image=img)
     root.title("Map")
 
-    Message(root, text='VALERIAN SPRIGS is at TVE, HOOP, SLH, ESTA, VARS', font=('Times', 10, 'bold'), width=450).pack(anchor='nw') #Message blocks are packed in the direction of the anchor
-    Message(root, text='ALIHOSTY LEAVES is at MBRC, LIBR, RUC', font=('Times', 10, 'bold'), width=450).pack(anchor='nw')
-    Message(root, text='BILLYWIG STRINGS is at SWH, CRAW', font=('Times', 10, 'bold'), width=450).pack(anchor='nw')
-    Message(root, text='PEARL DUST is at RMH, USVC, FNDH', font=('Times', 10, 'bold'), width=450).pack(anchor='nw')
-    Message(root, text='DITTANY is at MNTO, PRSC, LEWS', font=('Times', 10, 'bold'), width=450).pack(anchor='nw')
-    Button(root, text = 'Main Menu', bd=5, pady=4, command =lambda : moveMenu(root, 0)).pack(side = 'top', pady=4)
+    Message(root, text='VALERIAN SPRIGS is at TVE, HOOP, SLH, ESTA, VARS       ALIHOSTY LEAVES is at MBRC, LIBR, RUC', font=('Times', 10, 'bold'), width=800).pack(anchor='nw') #Message blocks are packed in the direction of the anchor
+    #Message(root, text='ALIHOSTY LEAVES is at MBRC, LIBR, RUC', font=('Times', 10, 'bold'), width=450).pack(anchor='nw')
+    Message(root, text='BILLYWIG STRINGS is at SWH, CRAW                   PEARL DUST is at RMH, USVC, FNDH', font=('Times', 10, 'bold'), width=800).pack(anchor='nw')
+    #Message(root, text='PEARL DUST is at RMH, USVC, FNDH', font=('Times', 10, 'bold'), width=450).pack(anchor='nw')
+    Message(root, text='DITTANY is at MNTO, PRSC, LEWS', font=('Times', 10, 'bold'), width=300).pack(anchor='nw')
+    #Button(root, text = 'Main Menu', bd=5, pady=4, command =lambda : moveMenu(root, 0)).pack(anchor='n')
     root.mainloop() #mainloop is the final command that you use in order to make the menu appear on the screen
 
 #The security logs tab that shows the Counselor name, Clock-in and Clock-out times, Location, Previous and Current Hash, Nonce value
@@ -54,7 +59,7 @@ def checkBlockchain():
     root = Tk()
     root.protocol("WM_DELETE_WINDOW", disableEvents) #This command prevents the students from closing the window randomly because the timers are used in a different thread
     root.title("Security Logs")
-    root.geometry("1400x400")
+    root.geometry("910x400")
     root.resizable(width=False, height=False)
     root.config(bg='black')
 
@@ -81,9 +86,8 @@ def checkBlockchain():
     #Looping through the log outputting the information in a specific format
     #Tkinter is very limited in the formatting that it can do so it didn't look the way that was intended
     for i in range(1,index):
-        myList.insert(END, '{0:<20}{1:<20}{2:<15}{3:<80}{4:<90}{5:<3}'.format(
-            'Counselor: '+ l.get_ID(i), 'Location: ' + locations[int(l.get_location(i))], 'Time: '+ l.get_time(i), 'Hash: ' + l.get_hash(i),
-            'Previous Hash: ' + l.get_p_hash(i), 'Nonce: ' + l.get_nonce(i)))
+        myList.insert(END, '{0:<20}{1:<20}{2:<15}{3:<80}'.format(
+            'Counselor: '+ l.get_ID(i), 'Location: ' + locations[int(l.get_location(i))], 'Time: '+ l.get_time(i), 'Hash: ' + l.get_hash(i)))
         myList.insert(END, "")
     
     myList.pack(anchor = 'nw')
@@ -173,7 +177,7 @@ def makeSure():
     root = Tk()
     root.protocol("WM_DELETE_WINDOW", disableEvents) #This command prevents the students from closing the window randomly because the timers are used in a different thread
     root.title("Be careful!!!")
-    root.geometry('400x100')
+    root.geometry('500x100')
     root.resizable(width=False, height=False)
     Label(root, text="Has the activity completed? If not DO NOT close the application").pack() #Question placed in there to add one final protection against them closing it
     Button(root, text='yes', command= lambda : root.destroy()).pack()
