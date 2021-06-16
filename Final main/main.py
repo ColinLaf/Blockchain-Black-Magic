@@ -39,8 +39,6 @@ def getMap():
     canvas.pack()
     btn = Button(root, text = 'Main Menu', bd=5, pady=4, command =lambda : moveMenu(root, 0))
     canvas.create_window( 350, 20, window = btn)
-    btn = Button(root, text = 'Main Menu', bd=5, pady=4, command=checkBlockchain)
-    canvas.create_window( 250, 20, window = btn)
     img = PhotoImage(file= "graphv3.ppm") #ppm files are the only ones that Tkinter is able to open (To my knowledge)
     img = img.subsample(3,3) #Image was too large, so this command is used in order to change the size
     canvas.create_image(0,0, anchor=NW, image=img)
