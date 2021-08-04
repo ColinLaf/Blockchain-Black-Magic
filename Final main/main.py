@@ -46,9 +46,9 @@ def getMap():
 
     Message(root, text='VALERIAN SPRIGS is at TVE, HOOP, SLH, ESTA, VARS       ALIHOSTY LEAVES is at MBRC, LIBR, RUC', font=('Times', 10, 'bold'), width=800).pack(anchor='nw') #Message blocks are packed in the direction of the anchor
     #Message(root, text='ALIHOSTY LEAVES is at MBRC, LIBR, RUC', font=('Times', 10, 'bold'), width=450).pack(anchor='nw')
-    Message(root, text='BILLYWIG STRINGS is at SWH, CRAW                   PEARL DUST is at RMH, USVC, FNDH', font=('Times', 10, 'bold'), width=800).pack(anchor='nw')
+    Message(root, text='BILLYWIG STRINGS is at SWH, CRAW                   PEARL DUST is at MNTO, RMH, USVC, FNDH', font=('Times', 10, 'bold'), width=800).pack(anchor='nw')
     #Message(root, text='PEARL DUST is at RMH, USVC, FNDH', font=('Times', 10, 'bold'), width=450).pack(anchor='nw')
-    Message(root, text='DITTANY is at MNTO, PRSC, LEWS', font=('Times', 10, 'bold'), width=300).pack(anchor='nw')
+    Message(root, text='DITTANY is at PRSC, LEWS', font=('Times', 10, 'bold'), width=300).pack(anchor='nw')
     #Button(root, text = 'Main Menu', bd=5, pady=4, command =lambda : moveMenu(root, 0)).pack(anchor='n')
     root.mainloop() #mainloop is the final command that you use in order to make the menu appear on the screen
 
